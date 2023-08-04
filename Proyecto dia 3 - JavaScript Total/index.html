@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Proyecto Dia 3 - JavaScript </title>
+    <!--<link rel="stylesheet" href="style.css">-->
+</head>
+
+<body onload="cuentaRegresiva()">
+    <h2>Responde lo mas rapido que puedas.</h2>
+    <h1>Te quedan: <span id="temporizador">30</span> segundos.</h1>
+    <p>1. 4 X 20 =</p>
+    <input id="answer1"></input>
+    <p>2. (6 + 3) / 3 =</p>
+    <input id="answer2"></input>
+    <p>3. 9 + 4 + 7 + 2 =</p>
+    <input id="answer3"></input>
+    <p>4. 75 / 3 + 12 =</p>
+    <input id="answer4"></input>
+    <p>5. 65 + 7 / 2 =</p>
+    <input id="answer5"></input>
+    <br><br>
+    <button onclick="finalizar()">Finalizar</button>
+    <button onclick="location.reload()">Reintentar</button>
+    <audio id="sonido">
+        <source type="audio/mpeg" src="alarma.mp3">
+    </audio>
+
+    <script>
+        let tiempoRestante;
+        let alarma;
+
+        function cuentaRegresiva() {
+            setInterval(restarSegundos, 1000);
+            setTimeout(tiempoAgotado, 1000 * 30);
+            function restarSegundos() {
+                let tiempoRestante = document.getElementById("temporizador").textContent;
+                document.getElementById("temporizador").textContent = tiempoRestante - 1;
+            }
+            function tiempoAgotado() {
+                clearInterval(tiempoRestante);
+                let alarma = document.getElementById("sonido");
+                alarma.play();
+                alert("GAME OVER. Pulsa reintentar");
+            }
+        }
+
+        function finalizar() {
+            clearInterval(tiempoRestante);
+            clearTimeout(alarma);
+            let fecha = new Date();
+            let answer1 = document.getElementById("answer1").value;
+            let answer2 = document.getElementById("answer2").value;
+            let answer3 = document.getElementById("answer3").value;
+            let answer4 = document.getElementById("answer4").value;
+            let answer5 = document.getElementById("answer5").value;
+            alert("Enhorabuena. Tus respuestas el dia  " + fecha.toLocaleDateString('es-ES') + "  son:  " + answer1 + ",  " + answer2 + ",  " + answer3 + ",  " + answer4 + "  y  " + answer5);
+        }
+    </script>
+</body>
+
+</html>
