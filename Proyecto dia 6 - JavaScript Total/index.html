@@ -2,22 +2,25 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Proyecto Dia 6 - JavaScript Total </title>
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Proyecto Dia 6 - JavaScript Total</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body onload="imprimirNotas()">
-   <ul id="listaNotas">
-   </ul>
-   <button onclick="calcularPromedio()">Promedio</button>
-   
-   <button>Nota mas alta</button>
-   <button>Aplazo</button>
-   <p>La nota promedio es: <span id="promedio"></span></p>
+<body>
+  <div class="container-botones">
+    <button id="boton-mostrar">Mostrar Notas</button>
+    <button id="boton-promedio">Promedio</button>
+    <button id="boton-mas-alta">Nota mas alta</button>
+    <button id="boton-aplazo">Aplazo</button>
+  </div>
+  <ul id="lista" class="output"></ul>
+  <p id="promedio" class="output"></p>
+  <p id="alta" class="output"></p>
+  <p id="aplazo" class="output"></p>
+  <script src="main.js"></script>
 </body>
 
 </html>
